@@ -42,8 +42,8 @@ enum ePUSH_BUTTON {NONE_PRESSED = 0, YELLOW_PRESSED, GREEN_PRESSED, BLUE_PRESSED
 // de Arduino. De betekenis van de instructies const en int wordt verderop besproken.
 
 //Alarm leds
-const int LIGHT_GREEN_PIN = 5;
-const int LIGHT_RED_PIN = 6;
+const int LIGHT_GREEN_PIN = 6;
+const int LIGHT_RED_PIN = 5;
 
 // De HX711 is de naam van de ADC die we gebruiken om het analoge krachtopnemer-signaal 
 // om te zetten in een digitale waarde waarmee de software kan rekenen. De ADC is 
@@ -225,8 +225,8 @@ void setup()
 	// met de corefunctie digitalWrite. In het geval van de onderstaande LEDs resulteert dit 
 	// in de LED aan of uit.
 
-  digitalWrite(LIGHT_GREEN_PIN,LOW);  // Zet de groene led uit bij opstarten
-  digitalWrite(LIGHT_RED_PIN,HIGH);   // Zet de rode led aan bij opstarten.
+  digitalWrite(LIGHT_GREEN_PIN,LOW);  // Zet de groene led aan bij opstarten
+  digitalWrite(LIGHT_RED_PIN,HIGH);   // Zet de rode led uit bij opstarten.
 
 	// Hoewel we het hieronder over outputpinnen hebben, moeten deze voor de correcte werking
 	// toch op een hoge waarde worden ingesteld. Dit geeft een zogeheten pull-up werking, waarbij 
