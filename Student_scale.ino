@@ -718,7 +718,11 @@ void loop()
 				//======================================
 				//Zet hieronder de code voor opdracht 1 
 				//======================================
-
+				if(gross_int > 350) 									// Als het bruto gewicht groter is dan 350 kg 
+				{
+				  digitalWrite(LIGHT_GREEN_PIN,HIGH); // Zet de groene led uit
+				  digitalWrite(LIGHT_RED_PIN,LOW);   	// Zet de rode led aan
+				}
 			}
 			 else 
 			{
