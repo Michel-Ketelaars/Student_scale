@@ -723,6 +723,11 @@ void loop()
 				  digitalWrite(LIGHT_GREEN_PIN,HIGH); // Zet de groene led uit
 				  digitalWrite(LIGHT_RED_PIN,LOW);   	// Zet de rode led aan
 				}
+				else																	// Als het bruto gewicht kleiner (of gelijk) is dan 350 kg 
+				{																			
+				  digitalWrite(LIGHT_GREEN_PIN,LOW);  // Zet de groene led aan
+				  digitalWrite(LIGHT_RED_PIN,HIGH);   // Zet de rode led uit
+				}	
 			}
 			 else 
 			{
