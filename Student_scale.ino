@@ -715,10 +715,30 @@ void loop()
 					Serial.println(str_format_buffer);		// Zet de regel naar de serieele output
 				}
 				
-				//======================================
+				//========================================
 				//Zet hieronder de code voor opdracht 1 
 				//======================================
-
+				bool is_overloaded;											// Opslag voor wel of niet groter dan 350 kg
+				static bool was_overloaded;		 					// Opslag van voorgaande cyclus voor wel of niet groter dan 350 kg
+																								// ("static" is nodig voor het onthouden van de oude waarde bij terugkeer op dit punt)
+	
+				is_overloaded = (gross_int > 350);
+				if(is_overloaded != was_overloaded)			// Voer onderstaande enkel uit als de het gewicht door de 350 kg grens is gegaan 
+				{
+					if(is_overloaded) 										// Als het bruto gewicht groter is dan 350 kg 
+					{
+					  digitalWrite(LIGHT_GREEN_PIN,HIGH); // Zet de groene led uit
+					  digitalWrite(LIGHT_RED_PIN,LOW);   	// Zet de rode led aan
+						Serial.println("Load greater than 350 grams detected");
+					}
+					else																	// Als het bruto gewicht kleiner (of gelijk) is dan 350 kg 
+					{																			
+					  digitalWrite(LIGHT_GREEN_PIN,LOW);  // Zet de groene led aan
+					  digitalWrite(LIGHT_RED_PIN,HIGH);   // Zet de rode led uit
+						Serial.println("Load less than 350 grams detected");
+					}	
+					was_overloaded = is_overloaded;				// De voorgaande load status updaten met de huidige load status 
+				}
 			}
 			 else 
 			{
