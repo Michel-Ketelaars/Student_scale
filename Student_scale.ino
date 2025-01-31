@@ -534,12 +534,12 @@ void loop()
 
 				case GREEN_PRESSED:		// Als de groene knop wordt ingedrukt voeren we de 
 															// kalibratie uit en verlaten daarna de kalibratiemode
-          
+
 					adc_sample = scale.read(); // Lees een actueel gewichtssample uit de ADC
 
-					// We voeren alleen een kalibratie uit als er een minimale belasting op de krachtopnemer
-					// is aangebracht. Deze grenswaarde is proefondervindelijk vastgesteld.
-					if(adc_sample > 900000)
+					// We voeren alleen een kalibratie uit als er een minimale belasting van ongeveer 50 gram  
+					// ten opzichte van het nulpunt op de krachtopnemer is aangebracht.
+					if((adc_sample - myConfig.zero_ad_value) > 23000) // +/-50gr
 					{
 						char str_buffer[50];	//Tijdelijk buffer voor het opslaan van 50 karakters
 	
